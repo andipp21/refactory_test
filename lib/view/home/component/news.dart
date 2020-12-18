@@ -11,12 +11,8 @@ class News extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.network(
-          newsModel.photoUrl,
-          width: 125,
-          alignment: Alignment.center,
-          fit: BoxFit.fill
-        ),
+        Image.network(newsModel.photoUrl,
+            width: 125, alignment: Alignment.center, fit: BoxFit.fill),
       ],
     );
   }

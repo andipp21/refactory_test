@@ -8,7 +8,8 @@ class DcArticle extends StatelessWidget {
       child: Column(
         children: [
           Image.network('https://cdn.fs.teachablecdn.com/KeagvIv6QC6TQCzyKzrL'),
-          Text('Alasan Mempelajari HTML dan CSS', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+          Text('Alasan Mempelajari HTML dan CSS',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
           Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: Text(

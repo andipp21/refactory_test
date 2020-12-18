@@ -5,6 +5,7 @@ import 'package:refactory_test/model/partner_model.dart';
 
 class HomeHeader extends StatefulWidget {
   final List<Partner> dataPartner;
+
   HomeHeader({this.dataPartner});
 
   @override
@@ -20,83 +21,96 @@ class _HomeHeaderState extends State<HomeHeader> {
       color: kPrimaryColor,
       child: Padding(
         padding: const EdgeInsets.all(24.0),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 32),
-                  child: RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      text: 'Empowering ',
-                      style: TextStyle(color: Colors.white, fontSize: 34, fontWeight: FontWeight.w500),
-                      children: < TextSpan > [
-                        TextSpan(text: 'People', style: TextStyle(color: kSecondaryColor)),
-                        TextSpan(text: ' Through Programming'),
-                      ],
-                    ),
-                  ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 32),
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  text: 'Empowering ',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 34,
+                      fontWeight: FontWeight.w500),
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: 'People',
+                        style: TextStyle(color: kSecondaryColor)),
+                    TextSpan(text: ' Through Programming'),
+                  ],
+                ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      text: 'Refactory adalah perusahaan edukasi dan teknologi yang menyediakan layanan lengkap berupa ',
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                      text:
+                          'Refactory adalah perusahaan edukasi dan teknologi yang menyediakan layanan lengkap berupa ',
                       style: TextStyle(color: Colors.white, fontSize: 18),
                       children: [
-                        TextSpan(text: 'course', style: TextStyle(fontStyle: FontStyle.italic)),
+                        TextSpan(
+                            text: 'course',
+                            style: TextStyle(fontStyle: FontStyle.italic)),
                         TextSpan(text: ' maupun '),
-                        TextSpan(text: 'custom training', style: TextStyle(fontStyle: FontStyle.italic)),
-                        TextSpan(text: ' yang materinya dapat disesuaikan dengan kebutuhan teknologi dan bisnis perusahaan Anda.'),
-                      ]
-                    )
-                  ),
-              ),
-              ButtonBar(
-                alignment: MainAxisAlignment.start,
-                children: [
-                  RaisedButton(
+                        TextSpan(
+                            text: 'custom training',
+                            style: TextStyle(fontStyle: FontStyle.italic)),
+                        TextSpan(
+                            text:
+                                ' yang materinya dapat disesuaikan dengan kebutuhan teknologi dan bisnis perusahaan Anda.'),
+                      ])),
+            ),
+            ButtonBar(
+              alignment: MainAxisAlignment.start,
+              children: [
+                RaisedButton(
                     textColor: Colors.white,
                     child: Text('Temukan Solusi Anda'),
                     color: kSecondaryColor,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-                    onPressed: () => {
-
-                    }
-                  ),
-                  OutlineButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0)),
+                    onPressed: () => {}),
+                OutlineButton(
                     textColor: Colors.white,
                     child: Text('Tingkatkan Skill Anda'),
                     borderSide: BorderSide(color: kSecondaryColor),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0)),
-                    onPressed: () => {
-
-                    }
+                        borderRadius: BorderRadius.circular(30.0)),
+                    onPressed: () => {}),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 32.0),
+              child: Column(
+                children: [
+                  Text(
+                    'PARTNER EKSLUSIF KAMI',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white),
                   ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 32.0),
-                child: Column(
-                  children: [
-                    Text('PARTNER EKSLUSIF KAMI', textAlign: TextAlign.center, style: TextStyle(color: Colors.white), ),
-                    CarouselSlider(
+                  CarouselSlider(
                       items: widget.dataPartner.map((data) {
                         return Builder(
                           builder: (BuildContext context) {
                             return Container(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.network(data.photoUrl, ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 16.0),
-                                      child: Text(data.name, style: TextStyle(color: Colors.white), ),
-                                  )
-                                ],
-                              )
-                            );
+                                child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.network(
+                                  data.photoUrl,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 16.0),
+                                  child: Text(
+                                    data.name,
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                )
+                              ],
+                            ));
                           },
                         );
                       }).toList(),
@@ -111,13 +125,12 @@ class _HomeHeaderState extends State<HomeHeader> {
                             cIndex = index;
                           });
                         },
-                      )
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
+                      ))
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

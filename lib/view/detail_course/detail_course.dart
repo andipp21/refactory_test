@@ -12,7 +12,7 @@ class DetailCourse extends StatefulWidget {
   _DetailCourseState createState() => _DetailCourseState();
 }
 
-class _DetailCourseState extends State < DetailCourse > {
+class _DetailCourseState extends State<DetailCourse> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +52,9 @@ class _DetailCourseState extends State < DetailCourse > {
   AppBar appHeader() {
     return AppBar(
       elevation: 0,
-      title: Image.network('https://refactory.id/wp-content/uploads/2020/01/refactory-hd-125x52.png', fit: BoxFit.cover),
+      title: Image.network(
+          'https://refactory.id/wp-content/uploads/2020/01/refactory-hd-125x52.png',
+          fit: BoxFit.cover),
       centerTitle: true,
       backgroundColor: kPrimaryColor,
     );

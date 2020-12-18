@@ -16,65 +16,58 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State < Home > {
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appHeader(),
-      drawer: Drawer(
-        child: NavHeader(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-
-        },
-        child: FaIcon(FontAwesomeIcons.whatsapp),
-        backgroundColor: Colors.green,
-      ),
-      body: SafeArea(
-        child: Container(
-          child: FutureBuilder < List < NewsModel > > (
-            future: Services.fetchNews(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return FutureBuilder < List < Partner >> (
-                  future: Services.fetchPartner(),
-                  builder: (context, ss) {
-                    if (ss.hasData) {
-                      return ListView(
-                        children: [
-                          HomeHeader(dataPartner: ss.data,),
-                          HomeBenefit(),
-                          Divider(thickness: 2),
-                          HomeInsight(),
-                          HomeAsSeenOn(nm: snapshot.data),
-                          Footer()
-                        ],
-                      );
-                    } else {
-                      return Center(
-                        child: CircularProgressIndicator()
-                      );
-                    }
-                  },
-                );
-              } else {
-                return Center(
-                  child: CircularProgressIndicator()
-                );
-              }
-            })
-
-        )
-
-      )
-    );
+        appBar: appHeader(),
+        drawer: Drawer(
+          child: NavHeader(),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: FaIcon(FontAwesomeIcons.whatsapp),
+          backgroundColor: Colors.green,
+        ),
+        body: SafeArea(
+            child: Container(
+                child: FutureBuilder<List<NewsModel>>(
+                    future: Services.fetchNews(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return FutureBuilder<List<Partner>>(
+                          future: Services.fetchPartner(),
+                          builder: (context, ss) {
+                            if (ss.hasData) {
+                              return ListView(
+                                children: [
+                                  HomeHeader(
+                                    dataPartner: ss.data,
+                                  ),
+                                  HomeBenefit(),
+                                  Divider(thickness: 2),
+                                  HomeInsight(),
+                                  HomeAsSeenOn(nm: snapshot.data),
+                                  Footer()
+                                ],
+                              );
+                            } else {
+                              return Center(child: CircularProgressIndicator());
+                            }
+                          },
+                        );
+                      } else {
+                        return Center(child: CircularProgressIndicator());
+                      }
+                    }))));
   }
 
   AppBar appHeader() {
     return AppBar(
       elevation: 0,
-      title: Image.network('https://refactory.id/wp-content/uploads/2020/01/refactory-hd-125x52.png', fit: BoxFit.cover),
+      title: Image.network(
+          'https://refactory.id/wp-content/uploads/2020/01/refactory-hd-125x52.png',
+          fit: BoxFit.cover),
       centerTitle: true,
       backgroundColor: kPrimaryColor,
     );

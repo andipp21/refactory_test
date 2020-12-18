@@ -10,10 +10,10 @@ class CoursesArticle extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 16.0),
-              child: Image.network(
-                'https://i1.wp.com/refactory.id/wp-content/uploads/2020/01/IMG_1152-1.jpg?fit=690%2C800&ssl=1',
-                width: MediaQuery.of(context).size.width,
-              ),
+            child: Image.network(
+              'https://i1.wp.com/refactory.id/wp-content/uploads/2020/01/IMG_1152-1.jpg?fit=690%2C800&ssl=1',
+              width: MediaQuery.of(context).size.width,
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 16),
@@ -58,30 +58,39 @@ class CoursesArticle extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(vertical: 16),
             child: RaisedButton(
-              textColor: Colors.white,
-              child: Text('Pelajari Lebih'),
-              color: kSecondaryColor,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-              onPressed: () => {
-
-              }
-            ),
+                textColor: Colors.white,
+                child: Text('Pelajari Lebih'),
+                color: kSecondaryColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0)),
+                onPressed: () => {}),
           ),
           Padding(
             padding: EdgeInsets.only(top: 32),
-            child: Text('MEET OUR GRADUATES', style: TextStyle(fontWeight: FontWeight.w300, fontSize: 24), ),
+            child: Text(
+              'MEET OUR GRADUATES',
+              style: TextStyle(fontWeight: FontWeight.w300, fontSize: 24),
+            ),
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 16),
-            child: Text('Review', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 32), ),
+            child: Text(
+              'Review',
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 32),
+            ),
           ),
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
               text: 'Read what our alumni said on ',
-              style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.w300),
-              children: < TextSpan > [
-                TextSpan(text: 'Course Report', style: TextStyle(fontWeight: FontWeight.w700)),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w300),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Course Report',
+                    style: TextStyle(fontWeight: FontWeight.w700)),
               ],
             ),
           ),

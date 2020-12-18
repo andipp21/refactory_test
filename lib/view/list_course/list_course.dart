@@ -13,8 +13,7 @@ class ListCourse extends StatefulWidget {
   _ListCourseState createState() => _ListCourseState();
 }
 
-class _ListCourseState extends State < ListCourse > {
-
+class _ListCourseState extends State<ListCourse> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,26 +22,26 @@ class _ListCourseState extends State < ListCourse > {
         child: NavHeader(),
       ),
       body: SafeArea(
-        child: Container(
-          color: Colors.white,
-          child: FutureBuilder(
+          child: Container(
+        color: Colors.white,
+        child: FutureBuilder(
             future: DefaultAssetBundle.of(context)
-            .loadString('lib/assets/data_json/course.json'),
+                .loadString('lib/assets/data_json/course.json'),
             builder: (context, snapshot) {
-              List < Course > lCourse = Services.parseCourse(snapshot.data.toString());
+              List<Course> lCourse =
+                  Services.parseCourse(snapshot.data.toString());
               if (snapshot.hasData) {
                 return SingleChildScrollView(
                   child: Column(
                     children: [
                       CourseHeader(),
                       ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: lCourse.length,
                           itemBuilder: (BuildContext context, int i) {
                             return CourseCard(data: lCourse[i]);
-                          }
-                      ),
+                          }),
                       FooterDua()
                     ],
                   ),
@@ -53,15 +52,16 @@ class _ListCourseState extends State < ListCourse > {
                 );
               }
             }),
-        )
-      ),
+      )),
     );
   }
 
   AppBar appHeader() {
     return AppBar(
       elevation: 0,
-      title: Image.network('https://refactory.id/wp-content/uploads/2020/01/refactory-hd-125x52.png', fit: BoxFit.cover),
+      title: Image.network(
+          'https://refactory.id/wp-content/uploads/2020/01/refactory-hd-125x52.png',
+          fit: BoxFit.cover),
       centerTitle: true,
       backgroundColor: kPrimaryColor,
     );

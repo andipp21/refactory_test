@@ -17,55 +17,54 @@ class Courses extends StatefulWidget {
   _CoursesState createState() => _CoursesState();
 }
 
-class _CoursesState extends State < Courses > {
-
+class _CoursesState extends State<Courses> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appHeader(),
-      drawer: Drawer(
-        child: NavHeader(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-
-        },
-        child: FaIcon(FontAwesomeIcons.whatsapp),
-        backgroundColor: Colors.green,
-      ),
-      body: SafeArea(
-        child: Container(
-          child: FutureBuilder < Review > (
-            future: Services.fetchReview(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return ListView(
-                  children: [
-                    CoursesHeader(),
-                    CoursesContent(),
-                    CoursesArticle(),
-                    CoursesReview(cr: snapshot.data.data,),
-                    CoursesLearning(),
-                    CoursesLangkah(),
-                    Footer()
-                  ],
-                );
-              } else {
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            }
-          ),
+        appBar: appHeader(),
+        drawer: Drawer(
+          child: NavHeader(),
         ),
-      )
-    );
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: FaIcon(FontAwesomeIcons.whatsapp),
+          backgroundColor: Colors.green,
+        ),
+        body: SafeArea(
+          child: Container(
+            child: FutureBuilder<Review>(
+                future: Services.fetchReview(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView(
+                      children: [
+                        CoursesHeader(),
+                        CoursesContent(),
+                        CoursesArticle(),
+                        CoursesReview(
+                          cr: snapshot.data.data,
+                        ),
+                        CoursesLearning(),
+                        CoursesLangkah(),
+                        Footer()
+                      ],
+                    );
+                  } else {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                }),
+          ),
+        ));
   }
 
   AppBar appHeader() {
     return AppBar(
       elevation: 0,
-      title: Image.network('https://refactory.id/wp-content/uploads/2020/01/refactory-hd-125x52.png', fit: BoxFit.cover),
+      title: Image.network(
+          'https://refactory.id/wp-content/uploads/2020/01/refactory-hd-125x52.png',
+          fit: BoxFit.cover),
       centerTitle: true,
       backgroundColor: kPrimaryColor,
     );

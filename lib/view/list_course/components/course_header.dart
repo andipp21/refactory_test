@@ -8,7 +8,7 @@ class CourseHeader extends StatefulWidget {
 }
 
 class _CourseHeaderState extends State<CourseHeader> {
-  List < String > spinnerString = ['All', 'HTML & CSS', 'FLUTTER', 'NODE.JS'];
+  List<String> spinnerString = ['All', 'HTML & CSS', 'FLUTTER', 'NODE.JS'];
 
   String dropdownValue = 'All';
 
@@ -22,34 +22,38 @@ class _CourseHeaderState extends State<CourseHeader> {
             children: [
               Text('Category : '),
               DropdownButton(
-                value: dropdownValue,
-                elevation: 16,
-                style: TextStyle(color: kSecondaryColor),
-                onChanged: (String str) {
-                  setState(() {
-                    dropdownValue = str;
-                  });
-                },
-                items: spinnerString.map < DropdownMenuItem < String >> ((String value) {
-                  return DropdownMenuItem < String > (
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList()),
+                  value: dropdownValue,
+                  elevation: 16,
+                  style: TextStyle(color: kSecondaryColor),
+                  onChanged: (String str) {
+                    setState(() {
+                      dropdownValue = str;
+                    });
+                  },
+                  items: spinnerString
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList()),
             ],
           ),
-
-          SearchWidget < String > (
+          SearchWidget<String>(
             dataList: spinnerString,
             hideSearchBoxWhenItemSelected: false,
             listContainerHeight: MediaQuery.of(context).size.height / 4,
-            queryBuilder: (String query, List < String > list) {
-              return list.where((String item) => item.toLowerCase().contains(query.toLowerCase())).toList();
+            queryBuilder: (String query, List<String> list) {
+              return list
+                  .where((String item) =>
+                      item.toLowerCase().contains(query.toLowerCase()))
+                  .toList();
             },
             popupListItemBuilder: (String item) {
               return null;
             },
-            selectedItemBuilder: (String selectedItem, VoidCallback deleteSelectedItem) {
+            selectedItemBuilder:
+                (String selectedItem, VoidCallback deleteSelectedItem) {
               return null;
             },
           ),
